@@ -11,3 +11,7 @@ class FacebookProfile(models.Model):
     def get_facebook_profile(self):
         fb_profile = urllib.urlopen('https://graph.facebook.com/me?access_token=%s' % self.access_token)
         return json.load(fb_profile)
+        
+    def get_facebook_friends(self):
+        fb_friends = urllib.urlopen('https://graph.facebook.com/me/friends?access_token=%s' % self.access_token)
+        return json.load(fb_friends)
