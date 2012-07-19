@@ -15,3 +15,7 @@ class FacebookProfile(models.Model):
     def get_facebook_friends(self):
         fb_friends = urllib.urlopen('https://graph.facebook.com/me/friends?access_token=%s' % self.access_token)
         return json.load(fb_friends)
+
+    def __unicode__(self):
+        print(dir(self.user))
+        return str(self.user.username)
